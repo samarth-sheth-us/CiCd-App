@@ -48,5 +48,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CodePushDeploymentKey</key>
+	<string>UiCdh2ajjiFFaL4tg32L8kmeIGeM41VOqPmjbx</string>
+	<key>CodePushServerURL</key>
+	<string>https://codepush.appsonair.com</string>
 </dict>
 </plist>

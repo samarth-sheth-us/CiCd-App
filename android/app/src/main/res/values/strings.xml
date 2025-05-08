@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CiCdApp</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">YLfgB_pFHb3P4USnmBw_3oRkHg5P41VOqPmjbx</string>
+    <string moduleConfig="true" name="CodePushServerUrl">https://codepush.appsonair.com</string>
 </resources>
