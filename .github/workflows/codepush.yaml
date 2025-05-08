@@ -1,0 +1,43 @@
+name: CodePush Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  codepush:
+    runs-on: ubuntu-latest
+
+    env:
+      CODEPUSH_TOKEN: ${{ secrets.CODEPUSH_TOKEN }}
+      APP_NAME_ANDROID: ${{ secrets.APP_NAME_ANDROID }}
+      APP_NAME_IOS: ${{ secrets.APP_NAME_IOS }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Use your required Node.js version
+
+      - name: Install CodePush CLI tools
+        run: |
+          npm i -g @appsonair/codepush-cli
+
+      - name: CodePush authentication
+        run: |
+          appsonair-codepush login --accessKey $CODEPUSH_TOKEN
+
+      - name: Install project dependencies
+        run: npm install
+
+      - name: CodePush deployment - iOS
+        run: |
+          appsonair-codepush release-react $APP_NAME_IOS
+
+      - name: CodePush deployment - Android
+        run: |
+          appsonair-codepush release-react $APP_NAME_ANDROID
