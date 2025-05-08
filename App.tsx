@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>CODEPUSH v2</Text>
+      <Text>CODEPUSH v3</Text>
       {codepushStatus && <Text>Status: {codepushStatus}</Text>}
     </View>
   );
